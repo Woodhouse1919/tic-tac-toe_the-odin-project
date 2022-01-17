@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 500px;
+  width: 500px;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  font-size: 4em;
+}
+
+.top-left {
+  border-top: none;
+  border-left: none;
+}
+
+.top-middle {
+  border-top: none;
+}
+
+.top-right {
+  border-top: none;
+  border-right: none;
+}
+
+.center-left {
+  border-left: none;
+}
+
+.center-right {
+  border-right: none;
+}
+
+.bottom-left {
+  border-left: none;
+  border-bottom: none;
+}
+
+.bottom-middle {
+  border-bottom: none;
+}
+
+.bottom-right {
+  border-bottom: none;
+  border-right: none;
+}
