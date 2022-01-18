@@ -8,17 +8,43 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="game">
-      <div class="grid-item top-left"></div>
-      <div class="grid-item top-middle"></div>
-      <div class="grid-item top-right"></div>
-      <div class="grid-item center-left"></div>
-      <div class="grid-item center-middle">X</div>
-      <div class="grid-item center-right"></div>
-      <div class="grid-item bottom-left"></div>
-      <div class="grid-item bottom-middle"></div>
-      <div class="grid-item bottom-right"></div>
+    <h1>Tic Tac Toe</h1>
+    <div class="turn-display">Player Ones turn</div>
+    <div class="start-screen">
+      <button class="start">Start</button>
+      <div class="text-container">
+        <div class="player1">
+          <label for="player1">Player One</label
+          ><input type="text" name="player1" id="player1" />
+        </div>
+        <div class="player2">
+          <label for="player2">Player Two</label
+          ><input type="text" name="player2" id="player2" />
+        </div>
+      </div>
     </div>
+    <div class="game-container">
+      <div class="player1-playing">
+        <p>Player One:</p>
+        <p>Paris</p>
+      </div>
+      <div class="game-board">
+        <div class="grid-item top-left"></div>
+        <div class="grid-item top-middle"></div>
+        <div class="grid-item top-right"></div>
+        <div class="grid-item center-left"></div>
+        <div class="grid-item center-middle"></div>
+        <div class="grid-item center-right"></div>
+        <div class="grid-item bottom-left"></div>
+        <div class="grid-item bottom-middle"></div>
+        <div class="grid-item bottom-right"></div>
+      </div>
+      <div class="player2-playing">
+        <p>Player Two:</p>
+        <p>Dani</p>
+      </div>
+    </div>
+    <button>Reset</button>
 
     <script src="main.js"></script>
   </body>
