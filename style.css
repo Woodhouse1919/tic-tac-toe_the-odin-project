@@ -17,7 +17,6 @@ body {
 
 h1 {
   font-size: 4em;
-  margin-bottom: 40px;
 }
 
 form {
@@ -37,15 +36,15 @@ form {
   font-size: 1.5rem;
 }
 
-
 .player-info-container {
-  display:flex;
+  display: flex;
   margin-top: 30px;
 }
 
-.player-one-container, .player-two-container {
+.player-one-container,
+.player-two-container {
   margin: 0px 30px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   text-align: center;
 }
@@ -55,13 +54,17 @@ label {
 }
 
 
-
-.player-one-playing, .player-two-playing {
+.player-one-playing,
+.player-two-playing {
   text-align: center;
 }
 
-
 /* GameBoard Section */
+.game-container {
+  justify-content: center;
+  width: 100%;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
