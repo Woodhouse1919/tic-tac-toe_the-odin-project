@@ -10,26 +10,28 @@
   <body>
     <h1>Tic Tac Toe</h1>
 
-    
-    <form class="start-screen" onsubmit="return false">
-      <button class="start">Start</button>
-      <div class="message-display">Enter your name!</div>
-      <div class="player-info-container">
-        <div class="player-one-container">
-          <label for="player-one">Player One</label
-          ><input type="text" name="player-one" id="player-one" required/>
-        </div>
-        <div class="player-two-container">
-          <label for="player-two">Player Two</label
-          ><input type="text" name="player-two" id="player-two" required/>
-        </div>
-      </div>
-      </form>
+    <div class="start-screen">
+      <form onsubmit="return false">
+        <button class="start">Start</button>
+        <div class="message-display hidden"></div>
 
-    <div class="game-container">
-      <div class="player1-playing hidden">
+        <div class="player-info-container">
+          <div class="player-one-container">
+            <label for="player-one">Player One</label
+            ><input type="text" name="player-one" id="player-one" required />
+          </div>
+          <div class="player-two-container">
+            <label for="player-two">Player Two</label
+            ><input type="text" name="player-two" id="player-two" required />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="game-container hidden">
+      <div class="player-one-playing">
         <p>Player One:</p>
-        <p>Paris</p>
+        <p class="player-one-name"></p>
       </div>
       <div class="game-board">
         <div class="grid-item top-left"></div>
@@ -42,9 +44,9 @@
         <div class="grid-item bottom-middle"></div>
         <div class="grid-item bottom-right"></div>
       </div>
-      <div class="player2-playing hidden">
+      <div class="player-two-playing">
         <p>Player Two:</p>
-        <p>Dani</p>
+        <p class="player-two-name"></p>
       </div>
     </div>
     <button class="hidden">Reset</button>
