@@ -71,6 +71,12 @@ const gameSetup = (() => {
   const startBtn = document.querySelector('.start');
   const playerOneInput = document.querySelector('#player-one');
   const playerTwoInput = document.querySelector('#player-two');
+  const startScreen = document.querySelector('.start-screen');
+  const gameContainer = document.querySelector('.game-container');
+  const playerOneName = document.querySelector('.player-one-name')
+  const playerTwoName = document.querySelector('.player-two-name')
+
+  
 
   // Player factory function
   const Player = (name, gamePiece) => {
@@ -83,7 +89,13 @@ const gameSetup = (() => {
     } else {
       const playerOne = Player(playerOneInput.value, 'X');
       const playerTwo = Player(playerTwoInput.value, 'O');
-      console.log(playerOne, playerTwo);
+
+      startScreen.classList.add('hidden');
+      gameContainer.classList.remove('hidden');
+      gameContainer.style.display = 'flex';
+      playerOneName.textContent = playerOne.name
+      playerTwoName.textContent = playerTwo.name
+
     }
   }
 
