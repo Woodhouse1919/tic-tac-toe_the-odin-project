@@ -12,25 +12,39 @@ body {
   width: 100vw;
 }
 
+.hidden {
+  display: none;
+}
+
 h1 {
   font-size: 4em;
   margin-bottom: 60px;
 }
 
 .start-screen {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-
-.text-container {
-  display: flex;
+.start {
+  padding: 15px;
+  width: 40%;
 }
 
-.player1, .player2 {
-  margin: 20px 50px;
+.message-display {
+  margin: 40px;
+  font-size: 1.5rem;
+}
+
+
+.player-info-container {
+  display:flex;
+}
+
+.player-one-container, .player-two-container {
+  margin: 30px 50px;
   display:flex;
   flex-direction: column;
   text-align: center;
@@ -38,6 +52,14 @@ h1 {
 
 label {
   margin: 10px;
+}
+
+#player-one:valid, #player-two:valid {
+  border: 1px solid black;
+}
+
+#player-one:invalid, #player-two:invalid {
+  border: 1px solid red;
 }
 
 .game-container {
@@ -51,7 +73,7 @@ label {
 
 /* GameBoard Section */
 .game-board {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   height: 500px;
