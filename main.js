@@ -1,7 +1,7 @@
 // Module containing all gameBoard information
 const gameBoard = (() => {
-  const grid = document.querySelectorAll('.grid-item');
-  const gameBoardArray = [];
+  let grid = document.querySelectorAll('.grid-item');
+  let gameBoardArray = [];
   const winConditions = [
     [0, 1, 2], // Horizontal Top
     [3, 4, 5], // Horizontal Middle
@@ -26,19 +26,19 @@ const gameBoard = (() => {
       if (gameBoardArray[gameBoardArray.length - 1] === undefined) {
         this.textContent = 'X';
         gameBoardArray.push('X');
-        checkWin()
+        checkWin();
       } else if (gameBoardArray[gameBoardArray.length - 1] === 'X') {
         this.textContent = 'O';
         gameBoardArray.push('O');
-        checkWin()
+        checkWin();
       } else if (gameBoardArray[gameBoardArray.length - 1] === 'O') {
         this.textContent = 'X';
         gameBoardArray.push('X');
-        checkWin()
+        checkWin();
       }
     }
   }
-
+  // Loops through winConditions variable checking each combo for a potential win
   function checkWin() {
     for (let i = 0; i <= 9; i++) {
       if (
@@ -46,29 +46,48 @@ const gameBoard = (() => {
         grid[winConditions[i][1]].textContent === 'X' &&
         grid[winConditions[i][2]].textContent === 'X'
       ) {
-        alert('X Wins!')
+        alert('X Wins!');
       } else if (
         grid[winConditions[i][0]].textContent === 'O' &&
         grid[winConditions[i][1]].textContent === 'O' &&
         grid[winConditions[i][2]].textContent === 'O'
       ) {
-        alert('O Wins!')
+        alert('O Wins!');
       } else if (gameBoardArray.length === 9) {
-        alert('Tie!')
+        alert('Tie!');
       }
     }
   }
 
   function reset() {
-    gameBoardArray = []
-    grid.forEach(gridItem => {
-      gridItem.textContent = ''
-    })
+    gameBoardArray = [];
+    grid.forEach((gridItem) => {
+      gridItem.textContent = '';
+    });
   }
-
 })();
 
-// Player factory function
-const Player = (name) => {
-  return { name };
-};
+const gameSetup = (() => {
+  const startBtn = document.querySelector('.start');
+  const playerOneInput = document.querySelector('#player-one');
+  const playerTwoInput = document.querySelector('#player-two');
+
+  
+
+
+
+  function checkInput() {
+    if (playerOneInput.value === '' || playerTwoInput.value === '') {
+      
+    }
+  }
+
+  // Player factory function
+  const Player = (name, gamePiece) => {
+    return { name, gamePiece };
+  };
+
+  startBtn.addEventListener('click', () => {
+    checkInput()
+  });
+})();
