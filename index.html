@@ -9,22 +9,25 @@
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
-    <div class="turn-display">Player Ones turn</div>
+
+    
     <div class="start-screen">
       <button class="start">Start</button>
-      <div class="text-container">
-        <div class="player1">
-          <label for="player1">Player One</label
-          ><input type="text" name="player1" id="player1" />
+      
+      <div class="player-info-container">
+        <div class="player-one-container">
+          <label for="player-one">Player One</label
+          ><input type="text" name="player-one" id="player-one" />
         </div>
-        <div class="player2">
-          <label for="player2">Player Two</label
-          ><input type="text" name="player2" id="player2" />
+        <div class="player-two-container">
+          <label for="player-two">Player Two</label
+          ><input type="text" name="player-two" id="player-two" />
         </div>
       </div>
     </div>
+
     <div class="game-container">
-      <div class="player1-playing">
+      <div class="player1-playing hidden">
         <p>Player One:</p>
         <p>Paris</p>
       </div>
@@ -39,12 +42,12 @@
         <div class="grid-item bottom-middle"></div>
         <div class="grid-item bottom-right"></div>
       </div>
-      <div class="player2-playing">
+      <div class="player2-playing hidden">
         <p>Player Two:</p>
         <p>Dani</p>
       </div>
     </div>
-    <button>Reset</button>
+    <button class="hidden">Reset</button>
 
     <script src="main.js"></script>
   </body>
