@@ -72,22 +72,22 @@ const gameSetup = (() => {
   const playerOneInput = document.querySelector('#player-one');
   const playerTwoInput = document.querySelector('#player-two');
 
-  
-
-
-
-  function checkInput() {
-    if (playerOneInput.value === '' || playerTwoInput.value === '') {
-      
-    }
-  }
-
   // Player factory function
   const Player = (name, gamePiece) => {
     return { name, gamePiece };
   };
 
+  function generatePlayers() {
+    if (playerOneInput.value === '' || playerTwoInput.value === '') {
+      return;
+    } else {
+      const playerOne = Player(playerOneInput.value, 'X');
+      const playerTwo = Player(playerTwoInput.value, 'O');
+      console.log(playerOne, playerTwo);
+    }
+  }
+
   startBtn.addEventListener('click', () => {
-    checkInput()
+    generatePlayers();
   });
 })();
