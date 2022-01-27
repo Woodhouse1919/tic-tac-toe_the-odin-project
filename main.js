@@ -1,7 +1,7 @@
 // Module containing all gameBoard information
 const gameBoard = (() => {
   let grid = document.querySelectorAll('.grid-item');
-  const resetBtn = document.querySelector('.reset')
+  const resetBtn = document.querySelector('.reset');
   let gameBoardArray = [];
   const winConditions = [
     [0, 1, 2], // Horizontal Top
@@ -19,7 +19,7 @@ const gameBoard = (() => {
     gridItem.addEventListener('click', addXO);
   });
 
-  resetBtn.addEventListener('click', reset)
+  resetBtn.addEventListener('click', reset);
 
   // Pushes item to gameBoard Array based on last index, alternating
   function addXO() {
@@ -71,6 +71,8 @@ const gameBoard = (() => {
 })();
 
 const gameSetup = (() => {
+  const header = document.querySelector('h1');
+  const displayMessage = document.querySelector('.message-display');
   const startBtn = document.querySelector('.start');
   const resetBtn = document.querySelector('.reset');
   const playerOneInput = document.querySelector('#player-one');
@@ -92,14 +94,19 @@ const gameSetup = (() => {
       const playerOne = Player(playerOneInput.value, 'X');
       const playerTwo = Player(playerTwoInput.value, 'O');
 
-      startScreen.classList.add('hidden');
-      gameContainer.classList.remove('hidden');
-      gameContainer.style.display = 'flex';
       playerOneName.textContent = playerOne.name;
       playerTwoName.textContent = playerTwo.name;
+
+      gameContainer.style.display = 'flex';
+      header.classList.add('hidden');
+      startScreen.classList.add('hidden');
+      displayMessage.classList.remove('hidden');
+      gameContainer.classList.remove('hidden');
       resetBtn.classList.remove('hidden');
+      displayMessage.classList.remove('hidden');
     }
   }
 
   startBtn.addEventListener('click', generatePlayers);
+
 })();
