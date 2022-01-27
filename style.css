@@ -27,6 +27,7 @@ form {
 }
 
 .start {
+  margin-top: 40px;
   padding: 15px;
   width: 40%;
 }
@@ -34,6 +35,8 @@ form {
 .message-display {
   margin: 30px;
   font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
 }
 
 .player-info-container {
@@ -53,10 +56,11 @@ label {
   margin: 10px;
 }
 
-
 .player-one-playing,
 .player-two-playing {
   text-align: center;
+  width: 25%;
+  padding: 10px;
 }
 
 /* GameBoard Section */
