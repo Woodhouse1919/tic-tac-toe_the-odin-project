@@ -1,9 +1,10 @@
 // Module containing all gameBoard information
 const gameBoard = (() => {
   let grid = document.querySelectorAll('.grid-item');
+  
+  let gameBoardArray = [];
   const resetBtn = document.querySelector('.reset');
   const displayMessage = document.querySelector('.message-display');
-  let gameBoardArray = [];
   const winConditions = [
     [0, 1, 2], // Horizontal Top
     [3, 4, 5], // Horizontal Middle
@@ -76,6 +77,8 @@ const gameBoard = (() => {
   }
 
   function reset() {
+    let players = gameSetup.generatePlayers();
+    displayMessage.textContent = `${players.playerOne.name}'s Turn!`
     gameBoardArray = [];
     grid.forEach((gridItem) => {
       gridItem.textContent = '';
