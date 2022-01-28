@@ -2,6 +2,7 @@
 const gameBoard = (() => {
   let grid = document.querySelectorAll('.grid-item');
   const resetBtn = document.querySelector('.reset');
+  const displayMessage = document.querySelector('.message-display');
   let gameBoardArray = [];
   const winConditions = [
     [0, 1, 2], // Horizontal Top
@@ -23,6 +24,7 @@ const gameBoard = (() => {
 
   // Pushes item to gameBoard Array based on last index, alternating
   function addXO() {
+    updateDisplay();
     if (gameBoardArray.length === 9) {
       return;
     } else if (this.textContent === '') {
@@ -62,6 +64,17 @@ const gameBoard = (() => {
     }
   }
 
+  function updateDisplay() {
+    let players = gameSetup.generatePlayers();
+    if (gameBoardArray[gameBoardArray.length - 1] === undefined) {
+      displayMessage.textContent = `${players.playerTwo.name}'s Turn!`;
+    } else if (gameBoardArray[gameBoardArray.length - 1] === 'X') {
+      displayMessage.textContent = `${players.playerOne.name}'s Turn!`;
+    } else if (gameBoardArray[gameBoardArray.length - 1] === 'O') {
+      displayMessage.textContent = `${players.playerTwo.name}'s Turn!`;
+    }
+  }
+
   function reset() {
     gameBoardArray = [];
     grid.forEach((gridItem) => {
@@ -91,8 +104,8 @@ const gameSetup = (() => {
     if (playerOneInput.value === '' || playerTwoInput.value === '') {
       return;
     } else {
-      const playerOne = Player(playerOneInput.value, 'X');
-      const playerTwo = Player(playerTwoInput.value, 'O');
+      let playerOne = Player(playerOneInput.value, 'X');
+      let playerTwo = Player(playerTwoInput.value, 'O');
 
       playerOneName.textContent = playerOne.name;
       playerTwoName.textContent = playerTwo.name;
@@ -104,9 +117,12 @@ const gameSetup = (() => {
       gameContainer.classList.remove('hidden');
       resetBtn.classList.remove('hidden');
       displayMessage.classList.remove('hidden');
+      displayMessage.textContent = `${playerOne.name}'s Turn!`;
+      return { playerOne, playerTwo };
     }
   }
 
   startBtn.addEventListener('click', generatePlayers);
 
+  return { generatePlayers };
 })();
