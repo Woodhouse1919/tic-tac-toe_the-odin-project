@@ -1,7 +1,6 @@
 // Module containing all gameBoard information
 const gameBoard = (() => {
   let grid = document.querySelectorAll('.grid-item');
-  
   let gameBoardArray = [];
   const resetBtn = document.querySelector('.reset');
   const displayMessage = document.querySelector('.message-display');
@@ -16,6 +15,8 @@ const gameBoard = (() => {
     [2, 4, 6], // Diagonal Top Right to Bottom Left
   ];
 
+  let win = false;
+
   // Binds click event for AddXO Function
   grid.forEach((gridItem) => {
     gridItem.addEventListener('click', addXO);
@@ -25,22 +26,22 @@ const gameBoard = (() => {
 
   // Pushes item to gameBoard Array based on last index, alternating
   function addXO() {
-    updateDisplay();
-    if (gameBoardArray.length === 9) {
-      return;
-    } else if (this.textContent === '') {
-      if (gameBoardArray[gameBoardArray.length - 1] === undefined) {
-        this.textContent = 'X';
-        gameBoardArray.push('X');
-        checkWin();
-      } else if (gameBoardArray[gameBoardArray.length - 1] === 'X') {
-        this.textContent = 'O';
-        gameBoardArray.push('O');
-        checkWin();
-      } else if (gameBoardArray[gameBoardArray.length - 1] === 'O') {
-        this.textContent = 'X';
-        gameBoardArray.push('X');
-        checkWin();
+    if (win != true) {
+      updateDisplay();
+      if (this.textContent === '') {
+        if (gameBoardArray[gameBoardArray.length - 1] === undefined) {
+          this.textContent = 'X';
+          gameBoardArray.push('X');
+          checkWin();
+        } else if (gameBoardArray[gameBoardArray.length - 1] === 'X') {
+          this.textContent = 'O';
+          gameBoardArray.push('O');
+          checkWin();
+        } else if (gameBoardArray[gameBoardArray.length - 1] === 'O') {
+          this.textContent = 'X';
+          gameBoardArray.push('X');
+          checkWin();
+        }
       }
     }
   }
@@ -52,15 +53,20 @@ const gameBoard = (() => {
         grid[winConditions[i][1]].textContent === 'X' &&
         grid[winConditions[i][2]].textContent === 'X'
       ) {
-        alert('X Wins!');
+        win = true;
+        let players = gameSetup.generatePlayers();
+        displayMessage.textContent = `${players.playerOne.name} Wins!`;
       } else if (
         grid[winConditions[i][0]].textContent === 'O' &&
         grid[winConditions[i][1]].textContent === 'O' &&
         grid[winConditions[i][2]].textContent === 'O'
       ) {
-        alert('O Wins!');
+        win = true;
+        let players = gameSetup.generatePlayers();
+        displayMessage.textContent = `${players.playerOne.name} Wins!`;
       } else if (gameBoardArray.length === 9) {
-        alert('Tie!');
+        win = true;
+        displayMessage.textContent = `Tie Game!`;
       }
     }
   }
@@ -77,8 +83,9 @@ const gameBoard = (() => {
   }
 
   function reset() {
+    win = false
     let players = gameSetup.generatePlayers();
-    displayMessage.textContent = `${players.playerOne.name}'s Turn!`
+    displayMessage.textContent = `${players.playerOne.name}'s Turn!`;
     gameBoardArray = [];
     grid.forEach((gridItem) => {
       gridItem.textContent = '';
