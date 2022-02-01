@@ -1,5 +1,6 @@
 // Module containing all gameBoard information
 const gameBoard = (() => {
+  let win = false;
   let grid = document.querySelectorAll('.grid-item');
   let gameBoardArray = [];
   const resetBtn = document.querySelector('.reset');
@@ -15,7 +16,7 @@ const gameBoard = (() => {
     [2, 4, 6], // Diagonal Top Right to Bottom Left
   ];
 
-  let win = false;
+  
 
   // Binds click event for AddXO Function
   grid.forEach((gridItem) => {
@@ -63,7 +64,7 @@ const gameBoard = (() => {
       ) {
         win = true;
         let players = gameSetup.generatePlayers();
-        displayMessage.textContent = `${players.playerOne.name} Wins!`;
+        displayMessage.textContent = `${players.playerTwo.name} Wins!`;
       } else if (gameBoardArray.length === 9) {
         win = true;
         displayMessage.textContent = `Tie Game!`;
